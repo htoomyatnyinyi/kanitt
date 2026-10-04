@@ -5,52 +5,55 @@ import { Copy, Check } from "lucide-react";
 
 const codeExamples = [
   {
-    label: "SDK Install",
-    code: `npm install @kanitt/sdk
-
-# or
-bun add @kanitt/sdk`,
+    label: "MCP Config",
+    code: `{
+  "mcpServers": {
+    "kanitt-erp": {
+      "command": "npx",
+      "args": ["-y", "@kanitt/mcp-server"],
+      "env": {
+        "KANITT_API_KEY": "kn_live_..."
+      }
+    }
+  }
+}`,
   },
   {
-    label: "POS API",
-    code: `import { KanittPOS } from '@kanitt/sdk'
+    label: "AI Agent Tools",
+    code: `// AI Assistants can directly execute MCP Tools:
+// 1. get_sales_report({ startDate: "2026-10-01" })
+// 2. check_inventory({ sku: "PROD-101" })
+// 3. create_pos_invoice({ items: [...] })
 
-const pos = new KanittPOS({
-  apiKey: process.env.KANITT_API_KEY,
-  offlineSupport: true
-})
-
-// Create sale order in POS
-const order = await pos.orders.create({
-  totalAmount: 45000,
-  items: [{ id: 'PROD-101', qty: 2 }]
+const result = await useMcpTool("kanitt-erp", "get_sales_report", {
+  period: "today"
 })`,
   },
   {
-    label: "Offline Sync",
-    code: `// Sync local pending transactions
-const syncResult = await pos.syncLocalDatabase()
+    label: "Offline Sync Tool",
+    code: `// MCP Resource & Prompt Trigger for Offline Sync
+const syncStatus = await readResource("kanitt://sync/status")
 
-console.log('Synced transactions count:', syncResult.syncedCount)`,
+console.log("Pending offline orders:", syncStatus.pendingCount)`,
   },
 ];
 
 const features = [
   { 
-    title: "TypeScript Native", 
-    description: "အပြည့်အဝ Type Safety ပါဝင်သော SDK."
+    title: "Model Context Protocol", 
+    description: "AI Agent များမှ ERP & POS စနစ်ကို တိုက်ရိုက် စီမံခန့်ခွဲနိုင်မည့် Standard MCP Server."
   },
   { 
-    title: "Offline Sync Engine", 
-    description: "SQLite/IndexedDB ဖြင့် အလိုအလျောက် Sync ပြုလုပ်ပေးမှု။"
+    title: "Real-time AI Tools", 
+    description: "စတော့ခ်စစ်ခြင်း၊ အရောင်းအစီရင်ခံစာ ထုတ်ခြင်းနှင့် Invoice ရိုက်ခြင်းများကို AI မှ တဆင့် ဆောင်ရွက်နိုင်မှု။"
   },
   { 
-    title: "REST & Webhook", 
-    description: "အရောင်းနှင့် စတော့ခ် အချက်အလက်များအတွက် Webhook သတိပေးချက်များ။"
+    title: "Offline-Sync Resources", 
+    description: "Local Database နှင့် Cloud Server အကြား Sync အခြေအနေကို AI မှ စောင့်ကြည့်နိုင်သော MCP Resources."
   },
   { 
-    title: "Hardware SDK", 
-    description: "Thermal Printer နှင့် Barcode Scanner များအတွက် Direct Driver."
+    title: "Secure Auth & Audit", 
+    description: "API Key ဖြင့် စနစ်ကျသော လုံခြုံရေးနှင့် လုပ်ဆောင်ချက် Log များ ထိန်းသိမ်းမှု။"
   },
 ];
 
@@ -119,15 +122,15 @@ export function DevelopersSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Developers & Integration
+              AI & MCP Integration
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Developer-Friendly
+              AI-Native Integration
               <br />
-              <span className="text-muted-foreground">APIs & SDK.</span>
+              <span className="text-muted-foreground">via MCP Server.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              မိမိတို့၏ ကိုယ်ပိုင် e-Commerce Website၊ Mobile App သို့မဟုတ် စာရင်းဇယား ဆော့ဖ်ဝဲများနှင့် Kanitt ERP & POS စနစ်ကို လွယ်ကူစွာ ချိတ်ဆက်နိုင်မည့် API နှင့် SDK များ ထောက်ပံ့ပေးထားပါသည်။
+              Claude, Antigravity IDE, Cursor စသည့် AI Agent များမှ သင့် Kanitt ERP & POS စနစ်ရှိ အရောင်း၊ စတော့ခ်နှင့် အစီရင်ခံစာများကို Model Context Protocol (MCP) ဖြင့် တိုက်ရိုက် မေးမြန်းစုံစမ်း စီမံခန့်ခွဲနိုင်ပါသည်။
             </p>
             
             {/* Features */}
