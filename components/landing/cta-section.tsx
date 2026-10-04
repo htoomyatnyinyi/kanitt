@@ -15,7 +15,7 @@ export function CtaSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -31,8 +31,11 @@ export function CtaSection() {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section
+      ref={sectionRef}
+      className="relative py-24 lg:py-32 overflow-hidden"
+    >
+      <div className="max-w-350 mx-auto px-6 lg:px-12">
         <div
           className={`relative border border-foreground transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -40,25 +43,24 @@ export function CtaSection() {
           onMouseMove={handleMouseMove}
         >
           {/* Spotlight effect */}
-          <div 
+          <div
             className="absolute inset-0 opacity-10 pointer-events-none transition-opacity duration-300"
             style={{
-              background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0,0,0,0.15), transparent 40%)`
+              background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0,0,0,0.15), transparent 40%)`,
             }}
           />
-          
+
           <div className="relative z-10 px-8 lg:px-16 py-16 lg:py-24">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               {/* Left content */}
               <div className="flex-1">
-                <h2 className="text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[1.05]">
-                  သင့်လုပ်ငန်းကို
-                  <br />
-                  စနစ်တကျ တိုးတက်စေဖို့ အသင့်ဖြစ်ပြီလား။
+                <h2 className="p-4 m-5 text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[1.05]">
+                  သင့်လုပ်ငန်းကို စနစ်တကျ တိုးတက်စေဖို့ အသင့်ဖြစ်ပြီလား။
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Kanitt ERP & POS စနစ်ဖြင့် အရောင်းစာရင်းနှင့် စတော့ခ်များကို စိတ်ချစွာ စီမံခန့်ခွဲလိုက်ပါ။ အခမဲ့ စမ်းသုံးကြည့်နိုင်ပါသည်။
+                  Kanitt ERP & POS စနစ်ဖြင့် အရောင်းစာရင်းနှင့် စတော့ခ်များကို
+                  စိတ်ချစွာ စီမံခန့်ခွဲလိုက်ပါ။ အခမဲ့ စမ်းသုံးကြည့်နိုင်ပါသည်။
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
