@@ -3,18 +3,18 @@
 import { useEffect, useState, useRef } from "react";
 
 const integrations = [
-  { name: "GitHub", category: "Version Control" },
-  { name: "Slack", category: "Communication" },
-  { name: "Stripe", category: "Payments" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "Redis", category: "Cache" },
-  { name: "AWS", category: "Cloud" },
-  { name: "MongoDB", category: "Database" },
-  { name: "Vercel", category: "Hosting" },
-  { name: "Figma", category: "Design" },
-  { name: "Linear", category: "Project Management" },
-  { name: "Notion", category: "Documentation" },
-  { name: "OpenAI", category: "AI/ML" },
+  { name: "KBZPay", category: "Digital Payment" },
+  { name: "CB Pay", category: "Digital Payment" },
+  { name: "WavePay", category: "Digital Payment" },
+  { name: "AYA Pay", category: "Digital Payment" },
+  { name: "Thermal Receipt Printer", category: "Hardware (Bluetooth/USB/LAN)" },
+  { name: "Barcode Scanner", category: "Hardware (1D/2D QR)" },
+  { name: "Cash Drawer", category: "Hardware (RJ11)" },
+  { name: "Android Mobile & Tablet", category: "Mobile Platform" },
+  { name: "iOS / iPadOS", category: "Mobile Platform" },
+  { name: "Windows / macOS POS", category: "Desktop Platform" },
+  { name: "Excel & CSV Import/Export", category: "Data Management" },
+  { name: "Telegram Bot Alert", category: "Notification System" },
 ];
 
 export function IntegrationsSection() {
@@ -48,16 +48,16 @@ export function IntegrationsSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            Integrations
+            ချိတ်ဆက်အသုံးပြုနိုင်မှုများ
             <span className="w-8 h-px bg-foreground/30" />
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6">
-            Works with everything
+            သင့်ဆိုင်ရှိ စက်ပစ္စည်းများ၊
             <br />
-            you already use.
+            ငွေချေစနစ်များနှင့် တိုက်ရိုက် ချိတ်ဆက်ပါ။
           </h2>
           <p className="text-xl text-muted-foreground">
-            200+ pre-built integrations. Connect your entire stack in minutes.
+            Receipt Printer၊ Barcode Scanner၊ Cash Drawer များနှင့် KPay၊ WavePay စသည့် Mobile Banking စနစ်များ အားလုံးနှင့် အလွယ်တကူ တွဲဖက် အသုံးပြုနိုင်ပါသည်။
           </p>
         </div>
       </div>

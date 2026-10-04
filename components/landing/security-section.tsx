@@ -6,27 +6,27 @@ import { Shield, Lock, Eye, FileCheck } from "lucide-react";
 const securityFeatures = [
   {
     icon: Shield,
-    title: "SOC 2 Type II",
-    description: "Independently audited security controls with continuous monitoring.",
+    title: "အလိုအလျောက် စတော့ခ်နှင့် အရောင်း Backup",
+    description: "Cloud တွင် နေ့စဉ် Automatic Backup သိမ်းဆည်းပေးပြီး ဒေတာများ မပျောက်ပျက်စေရန် အပြည့်အဝ ကာကွယ်ပေးထားပါသည်။",
   },
   {
     icon: Lock,
-    title: "End-to-end encryption",
-    description: "AES-256 encryption for data at rest and TLS 1.3 in transit.",
+    title: "256-bit AES Data Encryption",
+    description: "အရောင်းနှင့် ဘဏ္ဍာရေး စာရင်းဇယား အချက်အလက်များအားလုံးကို အဆင့်မြင့် Encryption စနစ်ဖြင့် လုံခြုံစွာ သိမ်းဆည်းထားပါသည်။",
   },
   {
     icon: Eye,
-    title: "Zero-trust architecture",
-    description: "Every request is authenticated and authorized. No exceptions.",
+    title: "ဝန်ထမ်း လုပ်ပိုင်ခွင့် အဆင့်ဆင့် သတ်မှတ်ခြင်း",
+    description: "မန်နေဂျာ၊ စာရင်းကိုင်နှင့် Cashier ဝန်ထမ်းအလိုက် စနစ်အသုံးပြုနိုင်သည့် လုပ်ပိုင်ခွင့်များ (Role-based Access) သတ်မှတ်နိုင်ပါသည်။",
   },
   {
     icon: FileCheck,
-    title: "GDPR & HIPAA",
-    description: "Full compliance with data protection and healthcare regulations.",
+    title: "Offline Storage Data Security",
+    description: "ဖုန်းနှင့် Tablet များပေါ်တွင် သိမ်းဆည်းထားသော Local Offline Data များကိုလည်း ခွင့်ပြုချက်မရှိဘဲ ရယူ၍မရအောင် ကာကွယ်ပေးထားသည်။",
   },
 ];
 
-const certifications = ["SOC 2", "ISO 27001", "HIPAA", "GDPR", "CCPA"];
+const certifications = ["AES-256", "SSL/TLS 1.3", "Auto-Backup", "Role Access", "Cloud Sync"];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,16 +56,15 @@ export function SecuritySection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Security
+              ဒေတာ လုံခြုံရေးနှင့် စိတ်ချရမှု
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Trust is
+              သင့်လုပ်ငန်း ဒေတာများကို
               <br />
-              non-negotiable.
+              ၁၀၀% စိတ်ချရမှု ပေးထားသည်။
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Enterprise-grade security isn&apos;t optional. It&apos;s built into every layer 
-              of our platform, from infrastructure to application.
+              လုပ်ငန်း၏ အရောင်းအဝယ် စာရင်းဇယားများနှင့် ကုန်ပစ္စည်း စတော့ခ် အချက်အလက်များကို ခွင့်ပြုချက်မရှိဘဲ ဝင်ရောက်ကြည့်ရှုခြင်းမှ ကာကွယ်ပေးထားပါသည်။
             </p>
 
             {/* Certifications */}

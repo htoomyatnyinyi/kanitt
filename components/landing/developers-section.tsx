@@ -5,52 +5,52 @@ import { Copy, Check } from "lucide-react";
 
 const codeExamples = [
   {
-    label: "Install",
-    code: `npm install @optimus/sdk
+    label: "SDK Install",
+    code: `npm install @kanitt/sdk
 
 # or
-yarn add @optimus/sdk
-pnpm add @optimus/sdk`,
+bun add @kanitt/sdk`,
   },
   {
-    label: "Initialize",
-    code: `import { Optimus } from '@optimus/sdk'
+    label: "POS API",
+    code: `import { KanittPOS } from '@kanitt/sdk'
 
-const optimus = new Optimus({
-  apiKey: process.env.OPTIMUS_KEY
+const pos = new KanittPOS({
+  apiKey: process.env.KANITT_API_KEY,
+  offlineSupport: true
+})
+
+// Create sale order in POS
+const order = await pos.orders.create({
+  totalAmount: 45000,
+  items: [{ id: 'PROD-101', qty: 2 }]
 })`,
   },
   {
-    label: "Deploy",
-    code: `const app = await optimus.deploy({
-  name: 'my-app',
-  region: 'auto',
-  scaling: {
-    min: 1,
-    max: 100
-  }
-})
+    label: "Offline Sync",
+    code: `// Sync local pending transactions
+const syncResult = await pos.syncLocalDatabase()
 
-console.log('Live at:', app.url)`,
+console.log('Synced transactions count:', syncResult.syncedCount)`,
   },
 ];
 
 const features = [
   { 
-    title: "TypeScript native", 
-    description: "Full type safety with auto-generated types."
+    title: "TypeScript Native", 
+    description: "အပြည့်အဝ Type Safety ပါဝင်သော SDK."
   },
   { 
-    title: "Zero config", 
-    description: "Sensible defaults that just work."
+    title: "Offline Sync Engine", 
+    description: "SQLite/IndexedDB ဖြင့် အလိုအလျောက် Sync ပြုလုပ်ပေးမှု။"
   },
   { 
-    title: "Edge-ready", 
-    description: "Runs anywhere: Node, Deno, Bun, browsers."
+    title: "REST & Webhook", 
+    description: "အရောင်းနှင့် စတော့ခ် အချက်အလက်များအတွက် Webhook သတိပေးချက်များ။"
   },
   { 
-    title: "12KB gzipped", 
-    description: "Lightweight with zero dependencies."
+    title: "Hardware SDK", 
+    description: "Thermal Printer နှင့် Barcode Scanner များအတွက် Direct Driver."
   },
 ];
 
@@ -119,16 +119,15 @@ export function DevelopersSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              For developers
+              Developers & Integration
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Built by devs.
+              Developer-Friendly
               <br />
-              <span className="text-muted-foreground">For devs.</span>
+              <span className="text-muted-foreground">APIs & SDK.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              A thoughtfully designed SDK that gets out of your way. 
-              Ship faster with intuitive APIs and exceptional documentation.
+              မိမိတို့၏ ကိုယ်ပိုင် e-Commerce Website၊ Mobile App သို့မဟုတ် စာရင်းဇယား ဆော့ဖ်ဝဲများနှင့် Kanitt ERP & POS စနစ်ကို လွယ်ကူစွာ ချိတ်ဆက်နိုင်မည့် API နှင့် SDK များ ထောက်ပံ့ပေးထားပါသည်။
             </p>
             
             {/* Features */}

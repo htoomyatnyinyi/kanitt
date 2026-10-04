@@ -4,32 +4,25 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "Optimus transformed our deployment pipeline. What used to take hours now happens in seconds.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "Meridian Labs",
-    metric: "10x faster deployments",
+    quote: "Kanitt POS စနစ်ကြောင့် ဆိုင်ခွဲ ၃ ခုလုံးရဲ့ အရောင်းစာရင်းနဲ့ စတော့ခ်ကျန်ကို ဖုန်းနဲ့တင် အချိန်နဲ့တစ်ပြေးညီ စောင့်ကြည့်နိုင်ပါပြီ။",
+    author: "ဦးအောင်ကျော်မိုး",
+    role: "Managing Director",
+    company: "City Mart Express (Mandalay)",
+    metric: "အရောင်းနှုန်း ၃၅% တိုးတက်လာခြင်း",
   },
   {
-    quote: "The developer experience is unmatched. Our team's productivity has never been higher.",
-    author: "Marcus Webb",
-    role: "Engineering Lead",
-    company: "Flux Systems",
-    metric: "40% more features shipped",
+    quote: "အင်တာနက် လိုင်းကျနေရင်တောင် Offline ရောင်းလို့ရပြီး လိုင်းပြန်လာတာနဲ့ Cloud Server ကို Sync ပြန်လုပ်ပေးတာ တကယ် အဆင်ပြေပါတယ်။",
+    author: "ဒေါ်သန်းသန်းအေး",
+    role: "Store Manager",
+    company: "Golden Star Mart",
+    metric: "၁၀၀% စတော့ခ် တိကျမှု",
   },
   {
-    quote: "Finally, infrastructure that scales with our ambition. Zero downtime since we switched.",
-    author: "Elena Rodriguez",
-    role: "VP Engineering",
-    company: "Beacon AI",
-    metric: "99.99% uptime",
-  },
-  {
-    quote: "The integrations are seamless. We connected our entire stack in a single afternoon.",
-    author: "James Liu",
-    role: "Founder",
-    company: "Prism Analytics",
-    metric: "50+ integrations used",
+    quote: "KPay နဲ့ Thermal Printer တွေပါ တိုက်ရိုက် ချိတ်ဆက်သုံးလို့ရလို့ Cashier ဝန်ထမ်းတွေ စာရင်းရိုက်ရတာ အရမ်း မြန်ဆန်သွားပါတယ်။",
+    author: "ကိုကျော်စွာလင်း",
+    role: "Operations Lead",
+    company: "Fresh Bakery & Cafe",
+    metric: "၅၀% စာရင်းရိုက်ချိန် လျှော့ချနိုင်ခြင်း",
   },
 ];
 
@@ -56,7 +49,7 @@ export function TestimonialsSection() {
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            What people say
+            သုံးစွဲသူများ၏ ထင်မြင်ချက်များ
           </span>
           <div className="flex-1 h-px bg-foreground/10" />
           <span className="font-mono text-xs text-muted-foreground">
@@ -72,7 +65,7 @@ export function TestimonialsSection() {
                 isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
               }`}
             >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
+              <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.2] tracking-tight text-foreground">
                 "{activeTestimonial.quote}"
               </p>
             </blockquote>
@@ -105,9 +98,9 @@ export function TestimonialsSection() {
               }`}
             >
               <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-4">
-                Key Result
+                ရရှိခဲ့သော ရလဒ်
               </span>
-              <p className="font-display text-3xl md:text-4xl text-foreground">
+              <p className="font-display text-2xl md:text-3xl text-foreground">
                 {activeTestimonial.metric}
               </p>
             </div>
@@ -138,7 +131,7 @@ export function TestimonialsSection() {
         {/* Company Logos Marquee Label */}
         <div className="mt-24 pt-12 border-t border-foreground/10">
           <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-8 text-center">
-            Trusted by forward-thinking teams
+            စိတ်ချယုံကြည်စွာ အသုံးပြုနေကြသော လုပ်ငန်းများ
           </p>
         </div>
       </div>

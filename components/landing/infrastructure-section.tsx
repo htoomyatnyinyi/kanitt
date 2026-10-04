@@ -3,12 +3,11 @@
 import { useEffect, useState, useRef } from "react";
 
 const locations = [
-  { city: "San Francisco", region: "US West", latency: "12ms" },
-  { city: "New York", region: "US East", latency: "18ms" },
-  { city: "London", region: "Europe", latency: "24ms" },
-  { city: "Tokyo", region: "Asia Pacific", latency: "32ms" },
-  { city: "Sydney", region: "Oceania", latency: "45ms" },
-  { city: "Sao Paulo", region: "South America", latency: "38ms" },
+  { city: "Yangon", region: "Primary Cloud Node", latency: "5ms" },
+  { city: "Mandalay", region: "Secondary Cloud Node", latency: "12ms" },
+  { city: "Naypyidaw", region: "Backup Data Node", latency: "10ms" },
+  { city: "Local Device (Offline)", region: "SQLite / IndexedDB", latency: "<1ms" },
+  { city: "Singapore", region: "Global Cloud Edge", latency: "28ms" },
 ];
 
 export function InfrastructureSection() {
@@ -47,31 +46,30 @@ export function InfrastructureSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Infrastructure
+              စနစ်၏ အခြေခံ အဆောက်အအုံ (Infrastructure)
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Global by
+              စိတ်ချရသော
               <br />
-              default.
+              Cloud & Offline Architecture.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Deploy once, run everywhere. Our edge network spans 17 data centers 
-              across 6 continents, delivering sub-50ms latency to 99% of the world.
+              အင်တာနက် မရှိချိန်တွင် ဖုန်းနှင့် Tablet များပေါ်ရှိ Local Storage စနစ်ဖြင့် လုပ်ဆောင်ပြီး၊ အင်တာနက် ရချိန်တွင် မြန်မာနိုင်ငံတွင်း ဒေတာစင်တာများနှင့် တိုက်ရိုက် Auto Sync ပြုလုပ်ပေးသည့် အဆင့်မြင့် စနစ်ဖြစ်ပါသည်။
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">17</div>
-                <div className="text-sm text-muted-foreground">Data centers</div>
-              </div>
-              <div>
                 <div className="text-4xl lg:text-5xl font-display mb-2">99.99%</div>
-                <div className="text-sm text-muted-foreground">Uptime SLA</div>
+                <div className="text-sm text-muted-foreground">Cloud Uptime</div>
               </div>
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">&lt;50ms</div>
-                <div className="text-sm text-muted-foreground">Global latency</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2">&lt;1ms</div>
+                <div className="text-sm text-muted-foreground">Offline Response</div>
+              </div>
+              <div>
+                <div className="text-4xl lg:text-5xl font-display mb-2">256-bit</div>
+                <div className="text-sm text-muted-foreground">Data Encryption</div>
               </div>
             </div>
           </div>
@@ -85,10 +83,10 @@ export function InfrastructureSection() {
             <div className="border border-foreground/10">
               {/* Header */}
               <div className="px-6 py-4 border-b border-foreground/10 flex items-center justify-between">
-                <span className="text-sm font-mono text-muted-foreground">Edge Network</span>
+                <span className="text-sm font-mono text-muted-foreground">Data & Network Nodes</span>
                 <span className="flex items-center gap-2 text-xs font-mono text-green-600">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  All operational
+                  Active & Synced
                 </span>
               </div>
 
