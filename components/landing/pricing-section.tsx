@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
+import { FreeTrialModal } from "./free-trial-modal";
 
 const plans = [
   {
@@ -54,12 +55,15 @@ const plans = [
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section
       id="pricing"
       className="relative py-32 lg:py-40 border-t border-foreground/10"
     >
+      <FreeTrialModal isOpen={isModalOpen} onOpenChange={setIsModalOpen} />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-20">
@@ -174,7 +178,8 @@ export function PricingSection() {
 
               {/* CTA */}
               <button
-                className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
+                onClick={() => setIsModalOpen(true)}
+                className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all cursor-pointer group ${
                   plan.popular
                     ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
                     : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
