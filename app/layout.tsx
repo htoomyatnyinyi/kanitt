@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kanitt ERP/POS systems",
+  title: "kanitt",
   description: "A platform to integrate all your business in one place.",
   // generator: '',
 };

@@ -106,9 +106,7 @@ export function FooterSection() {
 
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2026 Kanitt Digital Solutions. All rights reserved.
-          </p>
+          <p className="text-sm text-muted-foreground">© 2026 kanitt.com</p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">

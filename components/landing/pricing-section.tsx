@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { FreeTrialModal } from "./free-trial-modal";
 
@@ -199,12 +200,12 @@ export function PricingSection() {
         <p className="mt-12 text-center text-sm text-muted-foreground">
           Package တိုင်းတွင် Auto Backup၊ SSL လုံခြုံရေးနှင့် Cloud Update များ
           အခမဲ့ ပါဝင်သည်။{" "}
-          <a
-            href="#"
+          <Link
+            href="/pricing/compare"
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
             အသေးစိတ် နှိုင်းယှဉ်ကြည့်ရန်
-          </a>
+          </Link>
         </p>
       </div>
     </section>
