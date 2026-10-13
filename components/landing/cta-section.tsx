@@ -58,14 +58,42 @@ export function CtaSection() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               {/* Left content */}
               <div className="flex-1">
-                <h2 className="p-4 m-5 text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[1.05]">
-                  သင့်လုပ်ငန်းကို စနစ်တကျ တိုးတက်စေဖို့ အသင့်ဖြစ်ပြီလား။
+                <h2 className="p-4 m-5 text-4xl lg:text-6xl font-display tracking-tight mb-8 leading-[1.05]">
+                  <span className="inline-flex p-2 m-2">သင့်လုပ်ငန်းကို</span>
+                  <br />
+                  <span className="inline-flex p-2 m-2 ">
+                    စနစ်တကျ စီမံခန့်ခွဲရန်
+                  </span>
+                  <br />
+                  <span className="inline-flex p-2 m-2 ">အသင့်ဖြစ်ပြီလား။</span>
                 </h2>
 
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
+                <p
+                  className={`text-xl lg:text-2xl text-muted-foreground  m-4 leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                  }`}
+                >
+                  {"Kanitt ERP & POS စနစ်ဖြင့် အရောင်းစာရင်းနှင့် စတော့ခ်များကို စိတ်ချစွာ စီမံခန့်ခွဲလိုက်ပါ။ အခမဲ့ စမ်းသုံးကြည့်နိုင်ပါသည်။"
+                    .split(" ")
+                    .map((word, i) => (
+                      <span
+                        key={i}
+                        className="inline-block animate-char-in mr-1.5"
+                        style={{
+                          animationDelay: `${i * 30}ms`,
+                        }}
+                      >
+                        {word}
+                      </span>
+                    ))}
+                </p>
+
+                {/* <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
                   Kanitt ERP & POS စနစ်ဖြင့် အရောင်းစာရင်းနှင့် စတော့ခ်များကို
                   စိတ်ချစွာ စီမံခန့်ခွဲလိုက်ပါ။ အခမဲ့ စမ်းသုံးကြည့်နိုင်ပါသည်။
-                </p>
+                </p> */}
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button

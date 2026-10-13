@@ -71,9 +71,12 @@ export function PricingSection() {
             စျေးနှုန်းများ
           </span>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground mb-6">
-            ရှင်းလင်းလွယ်ကူသော
+            <span className="inline-flex p-2 m-2">ရှင်းလင်းလွယ်ကူသော</span>
             <br />
-            <span className="text-stroke">စျေးနှုန်း အစီအစဉ်များ</span>
+            <span className="inline-flex p-2 m-2 ">
+              {/* <span className="inline-flex p-2 m-2 text-stroke"> */}
+              စျေးနှုန်း အစီအစဉ်များ
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
             သင့်လုပ်ငန်း ပမာဏအလိုက် သင့်တော်သော Package ကို စိတ်တိုင်းကျ

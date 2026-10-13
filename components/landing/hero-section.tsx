@@ -25,7 +25,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+    >
       <FreeTrialModal isOpen={isModalOpen} onOpenChange={setIsModalOpen} />
 
       {/* Animated sphere background */}
@@ -81,7 +84,46 @@ export function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block p-2">သင့်လုပ်ငန်းကို</span>
+            <span className="block p-2">သင့်လုပ်ငန်း၏</span>
+            <span className="block p-2">
+              <span className="relative inline-block">
+                <span
+                  key={wordIndex}
+                  className="inline-flex p-2 animate-char-in"
+                >
+                  {words[wordIndex]}
+                </span>
+                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
+              </span>{" "}
+              <span>
+                <span
+                  // key={wordIndex}
+                  className="inline-flex p-2 animate-char-in"
+                >
+                  ကို
+                </span>
+                <br />
+                <span
+                  // key={wordIndex}
+                  className="inline-flex p-2 animate-char-in"
+                >
+                  အလွယ်တကူ စီမံခန့်ခွဲပါ
+                </span>
+                {/* <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" /> */}
+              </span>
+            </span>
+          </h1>
+        </div>
+
+        {/* <div className="mb-12">
+          <h1
+            className={`text-7xl font-display leading-[1.1] tracking-tight transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span className="block p-2">သင့်လုပ်ငန်း၏</span>
             <span className="block p-2">
               အလွယ်တကူ{" "}
               <span className="relative inline-block">
@@ -100,14 +142,14 @@ export function HeroSection() {
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
               </span>{" "}
-              စီမံခန့်ခွဲပါ
+              ကို အလွယ်တစ်ကူ စီမံခန့်ခွဲပါ
             </span>
           </h1>
-        </div>
+        </div> */}
 
         {/* Description */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end">
-          <p
+          {/* <p
             className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
@@ -118,11 +160,56 @@ export function HeroSection() {
             လုပ်ငန်းကြီးများအတွက် အရောင်းစာရင်း၊ စတော့ခ် ထိန်းချုပ်မှုနှင့်
             ဘဏ္ဍာရေး အစီရင်ခံစာများကို တစ်နေရာတည်းတွင် စနစ်တကျ
             စီမံခန့်ခွဲနိုင်သော Cloud-based System ဖြစ်သည်။
+          </p> */}
+          <p
+            className={`text-xl lg:text-2xl mb-5 text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            {"ကနစ် (kanitt) သည် အရောင်းဆိုင်များ၊ စတိုးဆိုင်များနှင့် လုပ်ငန်းကြီးများအတွက် အရောင်းစာရင်း၊ စတော့ခ် ထိန်းချုပ်မှုနှင့် ဘဏ္ဍာရေး အစီရင်ခံစာများကို တစ်နေရာတည်းတွင် စနစ်တကျ စီမံခန့်ခွဲနိုင်သော Cloud-based System ဝန်ဆောင်မှုပေးနေပါသည်။"
+              .split(" ")
+              .map((word, i) => (
+                <span
+                  key={i}
+                  className="inline-block animate-char-in mr-1.5"
+                  style={{
+                    animationDelay: `${i * 30}ms`,
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
           </p>
+          {/* animation version but character did not show propertly */}
+          {/* <p
+            className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            {Array.from(
+              new Intl.Segmenter("my", { granularity: "grapheme" }).segment(
+                "ကနစ် (kanitt) ERP & POS သည် အရောင်းဆိုင်များ၊ စတိုးဆိုင်များနှင့် လုပ်ငန်းကြီးများအတွက် အရောင်းစာရင်း၊ စတော့ခ် ထိန်းချုပ်မှုနှင့် ဘဏ္ဍာရေး အစီရင်ခံစာများကို တစ်နေရာတည်းတွင် စနစ်တကျ စီမံခန့်ခွဲနိုင်သော Cloud-based System ဖြစ်သည်။",
+              ),
+            ).map((item, i) => (
+              <span
+                key={i}
+                className="inline-block animate-char-in"
+                style={{
+                  animationDelay: `${i * 20}ms`, // စာလုံးတစ်လုံးချင်းစီ ပေါ်လာမည့် အချိန်အကွာအဝေး (လိုသလို ချိန်နိုင်သည်)
+                }}
+              >
+                {item.segment === " " ? "\u00A0" : item.segment}
+              </span>
+            ))}
+          </p> */}
 
           {/* CTAs */}
           <div
-            className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-300 ${
+            className={`flex flex-col sm:flex-row mb-4 items-start gap-4 transition-all duration-700 delay-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -159,22 +246,22 @@ export function HeroSection() {
             <div key={i} className="flex gap-16">
               {[
                 {
-                  value: "4.9/5",
+                  value: "4.0/5",
                   label: "သုံးစွဲသူ သုံးသပ်ချက်",
                   company: "KANITT ERP",
                 },
                 {
-                  value: "500+",
+                  value: "5+",
                   label: "စီးပွားရေး လုပ်ငန်းများ",
                   company: "KANITT POS",
                 },
                 {
-                  value: "100%",
+                  value: "90.99%",
                   label: "ယုံကြည်စိတ်ချရမှု",
                   company: "KANITT CLOUD",
                 },
                 {
-                  value: "3X",
+                  value: "2X",
                   label: "အရောင်းနှုန်း တိုးတက်မှု",
                   company: "ANALYTICS",
                 },

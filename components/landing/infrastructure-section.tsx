@@ -3,16 +3,16 @@
 import { useEffect, useState, useRef } from "react";
 
 const locations = [
-  { city: "Yangon", region: "Primary Cloud Node", latency: "80ms" },
-  { city: "Mandalay", region: "Secondary Cloud Node", latency: "120ms" },
-  { city: "Naypyidaw", region: "Backup Data Node", latency: "100ms" },
-  { city: "Mawlamyine", region: "Backup Data Node", latency: "80ms" },
+  { city: "Yangon", region: "Primary Cloud Node", latency: "100ms" },
+  { city: "Mandalay", region: "Secondary Cloud Node", latency: "130ms" },
+  { city: "Naypyidaw", region: "Backup Data Node", latency: "150ms" },
+  { city: "Mawlamyine", region: "Backup Data Node", latency: "180ms" },
   {
     city: "Local Device (Offline)",
     region: "SQLite / IndexedDB",
     latency: "<1ms",
   },
-  { city: "Germany", region: "Global Cloud Edge", latency: "485ms" },
+  { city: "Germany", region: "Global Cloud Edge", latency: "200ms" },
 ];
 
 export function InfrastructureSection() {
@@ -58,23 +58,49 @@ export function InfrastructureSection() {
               <span className="w-8 h-px bg-foreground/30" />
               စနစ်၏ အခြေခံ အဆောက်အအုံ (Infrastructure)
             </span>
-            <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              စိတ်ချရသော
+            <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8 ">
+              <span className="inline-flex p-2 m-2">စိတ်ချရသော</span>
               <br />
-              Cloud & Offline Architecture.
+              <span className="inline-flex p-2 m-2">
+                Cloud & Offline Architecture
+              </span>
+              {/* <span className="inline-flex p-2 m-2 bg-gradient-to-r from-slate-900 to-slate-300 bg-clip-text text-transparent">
+                Cloud & Offline Architecture.
+              </span> */}
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
+            {/* <p className="text-xl text-muted-foreground leading-relaxed mb-12">
               အင်တာနက် မရှိချိန်တွင် ဖုန်းနှင့် Tablet များပေါ်ရှိ Local Storage
               စနစ်ဖြင့် လုပ်ဆောင်ပြီး၊ အင်တာနက် ရချိန်တွင် မြန်မာနိုင်ငံတွင်း
               ဒေတာစင်တာများနှင့် တိုက်ရိုက် Auto Sync ပြုလုပ်ပေးသည့် အဆင့်မြင့်
               စနစ်ဖြစ်ပါသည်။
+            </p> */}
+            <p
+              className={`text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+            >
+              {"အင်တာနက် မရှိချိန်တွင် ဖုန်းနှင့် Tablet များပေါ်ရှိ Local Storage စနစ်ဖြင့် လုပ်ဆောင်ပြီး၊ အင်တာနက် ရချိန်တွင် မြန်မာနိုင်ငံတွင်း ဒေတာစင်တာများနှင့် တိုက်ရိုက် Auto Sync ပြုလုပ်ပေးသည့် အဆင့်မြင့် စနစ်ဖြစ်ပါသည်။"
+                .split(" ")
+                .map((word, i) => (
+                  <span
+                    key={i}
+                    className="inline-block animate-char-in mr-1.5 "
+                    style={{
+                      animationDelay: `${i * 30}ms`,
+                    }}
+                  >
+                    {word}
+                  </span>
+                ))}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8">
               <div>
                 <div className="text-4xl lg:text-5xl font-display mb-2">
-                  99.99%
+                  96.99%
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Cloud Uptime

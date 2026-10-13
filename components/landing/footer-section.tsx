@@ -30,8 +30,11 @@ const footerLinks = {
 
 const socialLinks = [
   { name: "Facebook", href: "#" },
-  { name: "Telegram", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "YouTube", href: "#" },
+  { name: "TikTok", href: "#" },
+
+  // { name: "Telegram", href: "#" },
+  // { name: "", href: "#" },
 ];
 
 export function FooterSection() {
@@ -41,7 +44,7 @@ export function FooterSection() {
       <div className="absolute inset-0 h-64 opacity-20 pointer-events-none overflow-hidden">
         <AnimatedWave />
       </div>
-      
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
         <div className="py-16 lg:py-24">
@@ -50,11 +53,14 @@ export function FooterSection() {
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
                 <span className="text-2xl font-display">kanitt ERP</span>
-                <span className="text-xs text-muted-foreground font-mono">TM</span>
+                <span className="text-xs text-muted-foreground font-mono">
+                  TM
+                </span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                ခေတ်မီစီးပွားရေးလုပ်ငန်းများနှင့် အရောင်းဆိုင်များအတွက် အထူးပြု ရေးဆွဲထားသော ERP & POS Cloud System.
+                ခေတ်မီစီးပွားရေးလုပ်ငန်းများနှင့် အရောင်းဆိုင်များအတွက် အထူးပြု
+                ရေးဆွဲထားသော ERP & POS Cloud System.
               </p>
 
               {/* Social Links */}

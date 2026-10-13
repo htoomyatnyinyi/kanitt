@@ -6,7 +6,8 @@ const steps = [
   {
     number: "I",
     title: "စနစ်စတင် တပ်ဆင်ခြင်း (Cloud / Mobile App)",
-    description: "သင့်ဆိုင် သို့မဟုတ် လုပ်ငန်း၏ ကုန်ပစ္စည်းအချက်အလက်များနှင့် စတော့ခ်များကို မိနစ်ပိုင်းအတွင်း စနစ်ထဲသို့ ထည့်သွင်းပါ။ Mobile / Tablet app များတွင်လည်း တိုက်ရိုက် သုံးနိုင်ပါသည်။",
+    description:
+      "သင့်ဆိုင် သို့မဟုတ် လုပ်ငန်း၏ ကုန်ပစ္စည်းအချက်အလက်များနှင့် စတော့ခ်များကို မိနစ်ပိုင်းအတွင်း စနစ်ထဲသို့ ထည့်သွင်းပါ။ Mobile / Tablet app များတွင်လည်း တိုက်ရိုက် သုံးနိုင်ပါသည်။",
     code: `import { kanittERP } from '@kanitt/pos'
 
 kanittERP.setup({
@@ -18,7 +19,8 @@ kanittERP.setup({
   {
     number: "II",
     title: "Offline & Online အရောင်းစနစ်",
-    description: "အင်တာနက် လိုင်းကျနေချိန်တွင်လည်း အရောင်းစာရင်း၊ Barcode scanning နှင့် Receipt ရိုက်ထုတ်ခြင်းများကို အနှောင့်အယှက်မရှိ သုံးနိုင်သည်။",
+    description:
+      "အင်တာနက် လိုင်းကျနေချိန်တွင်လည်း အရောင်းစာရင်း၊ Barcode scanning နှင့် Receipt ရိုက်ထုတ်ခြင်းများကို အနှောင့်အယှက်မရှိ သုံးနိုင်သည်။",
     code: `// Works seamlessly offline & online
 kanittERP.pos.createOrder({
   items: ['item_001', 'item_002'],
@@ -29,7 +31,8 @@ kanittERP.pos.createOrder({
   {
     number: "III",
     title: "Automatic Background Data Sync",
-    description: "အင်တာနက် ပြန်လည် ချိတ်ဆက်မိသည်နှင့် Local တွင် သိမ်းဆည်းထားသော အရောင်းစာရင်းများ Cloud Server နှင့် Automatic Sync ပြုလုပ်ပေးပါသည်။",
+    description:
+      "အင်တာနက် ပြန်လည် ချိတ်ဆက်မိသည်နှင့် Local တွင် သိမ်းဆည်းထားသော အရောင်းစာရင်းများ Cloud Server နှင့် Automatic Sync ပြုလုပ်ပေးပါသည်။",
     code: `kanittERP.on('networkStatusChange', (online) => {
   if (online) {
     await kanittERP.syncOfflineQueue()
@@ -49,7 +52,7 @@ export function HowItWorksSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -71,15 +74,18 @@ export function HowItWorksSection() {
     >
       {/* Diagonal lines pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
             -45deg,
             transparent,
             transparent 40px,
             currentColor 40px,
             currentColor 41px
-          )`
-        }} />
+          )`,
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -91,12 +97,16 @@ export function HowItWorksSection() {
           </span>
           <h2
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
           >
-            လွယ်ကူဆန်းသစ်သော။
+            <span className="inline-flex p-2 m-1">လွယ်ကူဆန်းသစ်သော</span>
             <br />
-            <span className="text-background/50">စနစ်သုံးစွဲမှု အတွေ့အကြုံ။</span>
+            <span className="inline-flex p-2 m-1">
+              စနစ်သုံးစွဲမှု အတွေ့အကြုံ
+            </span>
           </h2>
         </div>
 
@@ -110,11 +120,15 @@ export function HowItWorksSection() {
                 type="button"
                 onClick={() => setActiveStep(index)}
                 className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group ${
-                  activeStep === index ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  activeStep === index
+                    ? "opacity-100"
+                    : "opacity-40 hover:opacity-70"
                 }`}
               >
                 <div className="flex items-start gap-6">
-                  <span className="font-display text-3xl text-background/30">{step.number}</span>
+                  <span className="font-display text-3xl text-background/30">
+                    {step.number}
+                  </span>
                   <div className="flex-1">
                     <h3 className="text-2xl lg:text-3xl font-display mb-3 group-hover:translate-x-2 transition-transform duration-300">
                       {step.title}
@@ -122,14 +136,14 @@ export function HowItWorksSection() {
                     <p className="text-background/60 leading-relaxed">
                       {step.description}
                     </p>
-                    
+
                     {/* Progress indicator */}
                     {activeStep === index && (
                       <div className="mt-4 h-px bg-background/20 overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-background w-0"
                           style={{
-                            animation: 'progress 5s linear forwards'
+                            animation: "progress 5s linear forwards",
                           }}
                         />
                       </div>
@@ -150,23 +164,27 @@ export function HowItWorksSection() {
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">workflow.ts</span>
+                <span className="text-xs font-mono text-background/40">
+                  workflow.ts
+                </span>
               </div>
 
               {/* Code content */}
               <div className="p-8 font-mono text-sm min-h-[280px]">
                 <pre className="text-background/70">
-                  {steps[activeStep].code.split('\n').map((line, lineIndex) => (
-                    <div 
-                      key={`${activeStep}-${lineIndex}`} 
+                  {steps[activeStep].code.split("\n").map((line, lineIndex) => (
+                    <div
+                      key={`${activeStep}-${lineIndex}`}
                       className="leading-loose code-line-reveal"
-                      style={{ 
+                      style={{
                         animationDelay: `${lineIndex * 80}ms`,
                       }}
                     >
-                      <span className="text-background/20 select-none w-8 inline-block">{lineIndex + 1}</span>
+                      <span className="text-background/20 select-none w-8 inline-block">
+                        {lineIndex + 1}
+                      </span>
                       <span className="inline-flex">
-                        {line.split('').map((char, charIndex) => (
+                        {line.split("").map((char, charIndex) => (
                           <span
                             key={`${activeStep}-${lineIndex}-${charIndex}`}
                             className="code-char-reveal"
@@ -174,7 +192,7 @@ export function HowItWorksSection() {
                               animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
                             }}
                           >
-                            {char === ' ' ? '\u00A0' : char}
+                            {char === " " ? "\u00A0" : char}
                           </span>
                         ))}
                       </span>
@@ -186,7 +204,9 @@ export function HowItWorksSection() {
               {/* Status */}
               <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono text-background/40">Ready</span>
+                <span className="text-xs font-mono text-background/40">
+                  Ready
+                </span>
               </div>
             </div>
           </div>
@@ -195,29 +215,33 @@ export function HowItWorksSection() {
 
       <style jsx>{`
         @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
         }
-        
+
         .code-line-reveal {
           opacity: 0;
           transform: translateX(-8px);
           animation: lineReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
+
         @keyframes lineReveal {
           to {
             opacity: 1;
             transform: translateX(0);
           }
         }
-        
+
         .code-char-reveal {
           opacity: 0;
           filter: blur(8px);
           animation: charReveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
+
         @keyframes charReveal {
           to {
             opacity: 1;

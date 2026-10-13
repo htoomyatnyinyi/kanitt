@@ -3,10 +3,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const integrations = [
-  { name: "KBZPay", category: "Digital Payment" },
-  { name: "CB Pay", category: "Digital Payment" },
-  { name: "WavePay", category: "Digital Payment" },
-  { name: "AYA Pay", category: "Digital Payment" },
+  // { name: "KBZPay", category: "Digital Payment" },
+  // { name: "CB Pay", category: "Digital Payment" },
+  // { name: "WavePay", category: "Digital Payment" },
+  // { name: "AYA Pay", category: "Digital Payment" },
   { name: "Thermal Receipt Printer", category: "Hardware (Bluetooth/USB/LAN)" },
   { name: "Barcode Scanner", category: "Hardware (1D/2D QR)" },
   { name: "Cash Drawer", category: "Hardware (RJ11)" },
@@ -14,7 +14,7 @@ const integrations = [
   { name: "iOS / iPadOS", category: "Mobile Platform" },
   { name: "Windows / macOS POS", category: "Desktop Platform" },
   { name: "Excel & CSV Import/Export", category: "Data Management" },
-  { name: "Telegram Bot Alert", category: "Notification System" },
+  // { name: "Telegram Bot Alert", category: "Notification System" },
 ];
 
 export function IntegrationsSection() {
@@ -42,7 +42,7 @@ export function IntegrationsSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div
-          className={`text-center max-w-3xl mx-auto mb-16 lg:mb-24 transition-all duration-700 ${
+          className={`text-center max-w-full mx-auto mb-16 lg:mb-24 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -52,12 +52,17 @@ export function IntegrationsSection() {
             <span className="w-8 h-px bg-foreground/30" />
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6">
-            သင့်ဆိုင်ရှိ စက်ပစ္စည်းများ၊
+            <span className="inline-flex p-2 m-2 justify-center">
+              သင့်ဆိုင်ရှိ စက်ပစ္စည်းများ
+            </span>
             <br />
-            ငွေချေစနစ်များနှင့် တိုက်ရိုက် ချိတ်ဆက်ပါ။
+            <span className="inline-flex p-2 m-2 justify-center">
+              ငွေချေစနစ်များနှင့် တိုက်ရိုက် ချိတ်ဆက်ပါ
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Receipt Printer၊ Barcode Scanner၊ Cash Drawer များနှင့် KPay၊ WavePay စသည့် Mobile Banking စနစ်များ အားလုံးနှင့် အလွယ်တကူ တွဲဖက် အသုံးပြုနိုင်ပါသည်။
+            Receipt Printer၊ Barcode Scanner၊ Cash Drawer များနှင့် အလွယ်တကူ
+            တွဲဖက် အသုံးပြုနိုင်ပါသည်။
           </p>
         </div>
       </div>

@@ -26,7 +26,7 @@ export function Navigation() {
 
       // Scroll Spy for active section
       const sectionElements = navLinks.map((link) =>
-        document.getElementById(link.id)
+        document.getElementById(link.id),
       );
 
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -93,7 +93,9 @@ export function Navigation() {
                   {link.name}
                   <span
                     className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
-                      activeSection === link.id ? "w-full" : "w-0 group-hover:w-full"
+                      activeSection === link.id
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
                     }`}
                   />
                 </a>
@@ -109,7 +111,9 @@ export function Navigation() {
                 စျေးနှုန်းများ
                 <span
                   className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
-                    activeSection === "pricing" ? "w-full" : "w-0 group-hover:w-full"
+                    activeSection === "pricing"
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
                   }`}
                 />
               </a>
@@ -117,18 +121,18 @@ export function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <a
+              {/* <a
                 href="#"
                 className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
               >
                 အကောင့်ဝင်ရန်
-              </a>
-              <Button
+              </a> */}
+              {/* <Button
                 size="sm"
                 className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
               >
                 စမ်းသုံးကြည့်ရန်
-              </Button>
+              </Button> */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -190,13 +194,13 @@ export function Navigation() {
               }`}
               style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
             >
-              <Button
+              {/* <Button
                 variant="outline"
                 className="flex-1 rounded-full h-14 text-base"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 အကောင့်ဝင်ရန်
-              </Button>
+              </Button> */}
               <Button
                 className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
                 onClick={() => setIsMobileMenuOpen(false)}

@@ -2,7 +2,15 @@
 
 import { useEffect, useState, useRef } from "react";
 
-function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
+function AnimatedCounter({
+  end,
+  suffix = "",
+  prefix = "",
+}: {
+  end: number;
+  suffix?: string;
+  prefix?: string;
+}) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -30,7 +38,7 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -39,33 +47,36 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
   return (
     <div ref={ref} className="text-6xl lg:text-8xl font-display tracking-tight">
-      {prefix}{count.toLocaleString()}{suffix}
+      {prefix}
+      {count.toLocaleString()}
+      {suffix}
     </div>
   );
 }
 
 const metrics = [
-  { 
-    value: 150000, 
-    suffix: "+", 
+  {
+    value: 50,
+    suffix: "+",
     prefix: "",
-    label: "နေ့စဉ် ပြေစာထုတ်ယူမှု အရေအတွက်",
+    // label: "ကဏ္ဍအလိုက် လုပ်ငန်းအမျိုးအစား",
+    label: "ချိတ်ဆက်ထားသော စက်ကိရိယာများ အရေအတွက်",
   },
-  { 
-    value: 99, 
-    suffix: ".99%", 
+  {
+    value: 89,
+    suffix: ".99%",
     prefix: "",
     label: "စနစ် အဆင်ပြေစွာ ပုံမှန် လည်ပတ်နိုင်မှု",
   },
-  { 
-    value: 50, 
-    suffix: "ms", 
+  {
+    value: 110,
+    suffix: "ms",
     prefix: "<",
     label: "POS အရောင်းစနစ် တုံ့ပြန်မှု မြန်နှုန်း",
   },
-  { 
-    value: 500, 
-    suffix: "+", 
+  {
+    value: 8,
+    suffix: "+",
     prefix: "",
     label: "စိတ်တိုင်းကျ အသုံးပြုနေသော ဆိုင်ခွဲများ",
   },
@@ -86,7 +97,7 @@ export function MetricsSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -94,7 +105,11 @@ export function MetricsSection() {
   }, []);
 
   return (
-    <section id="studio" ref={sectionRef} className="relative py-24 lg:py-32 border-y border-foreground/10">
+    <section
+      id="studio"
+      ref={sectionRef}
+      className="relative py-24 lg:py-32 border-y border-foreground/10"
+    >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
@@ -105,12 +120,16 @@ export function MetricsSection() {
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
               }`}
             >
-              လက်တွေ့ကျသော
+              <span className="inline-flex p-2 m-2">လက်တွေ့ကျသော</span>
               <br />
-              စွမ်းဆောင်ရည် ကိန်းဂဏန်းများ။
+              <span className="inline-flex p-2 m-2">
+                စွမ်းဆောင်ရည် ကိန်းဂဏန်းများ
+              </span>
             </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
@@ -122,23 +141,27 @@ export function MetricsSection() {
             <span>{time.toLocaleTimeString()}</span>
           </div>
         </div>
-        
+
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-foreground/10">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
               className={`bg-background p-8 lg:p-12 transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <AnimatedCounter 
-                end={typeof metric.value === 'number' ? metric.value : 0} 
-                suffix={metric.suffix} 
+              <AnimatedCounter
+                end={typeof metric.value === "number" ? metric.value : 0}
+                suffix={metric.suffix}
                 prefix={metric.prefix}
               />
-              <div className="mt-4 text-lg text-muted-foreground">{metric.label}</div>
+              <div className="mt-4 text-lg text-muted-foreground">
+                {metric.label}
+              </div>
             </div>
           ))}
         </div>
